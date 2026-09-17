@@ -1,126 +1,392 @@
-<!DOCTYPE html><html lang="fr"><head>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dahiratoul Imani Wal Hamal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>Accueil - Dahiratoul Imani Wal Hamal</title>
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html,
-    body {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #003d32;
-    }
-
-    .accueil {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        height: 100dvh;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        background: #003d32;
-    }
-
-    .image-accueil {
-        width: 100%;
-        height: 100%;
-
-        object-fit: contain;
-
-        display: block;
-
-        user-select: none;
-        -webkit-user-drag: none;
-    }
-
-    #continuer {
-        position: absolute;
-
-        left: 50%;
-        bottom: 30px;
-
-        transform: translateX(-50%);
-
-        width: 190px;
-        height: 55px;
-
-        border: 2px solid rgba(255, 215, 100, 0.9);
-        border-radius: 30px;
-
-        background: rgba(0, 61, 50, 0.90);
-
-        color: #ffd766;
-
-        font-size: 18px;
-        font-weight: bold;
-
-        letter-spacing: 0.5px;
-
-        cursor: pointer;
-
-        z-index: 10;
-
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
-
-        transition: 0.2s ease;
-    }
-
-    #continuer:hover {
-        transform: translateX(-50%) scale(1.03);
-        background: rgba(0, 61, 50, 0.96);
-    }
-
-    #continuer:active {
-        transform: translateX(-50%) scale(0.96);
-    }
-
-    @media screen and (max-width: 600px) {
-
-        #continuer {
-            width: 165px;
-            height: 52px;
-            bottom: 30px;
-            font-size: 17px;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: #061f18;
+            color: white;
+            min-height: 100vh;
+        }
 
-</style>
+        /* HEADER */
+        header {
+            height: 70px;
+            background: #0b3d2e;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            border-bottom: 2px solid #c9a227;
+            position: relative;
+        }
 
-</head><body><main class="accueil">
+        .logo {
+            color: #d4af37;
+            font-size: 18px;
+            font-weight: bold;
+            max-width: 280px;
+        }
 
-    <img
-        src="accueil.png"
-        alt="Dahiratoul Imani Wal Hamal"
-        class="image-accueil"
-    >
+        /* BOUTON MENU */
+        .menu-btn {
+            width: 45px;
+            height: 45px;
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            background: transparent;
+            color: #d4af37;
+            font-size: 25px;
+            cursor: pointer;
+        }
 
-    <button id="continuer" type="button">
-        Continuer
-    </button>
+        /* MENU */
+        .menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 15px;
+            width: 230px;
+            background: #0b3d2e;
+            border: 1px solid #c9a227;
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 100;
+        }
 
-</main>
+        .menu.active {
+            display: block;
+        }
 
-<script>
+        .menu a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+        }
 
-    document
-        .getElementById("continuer")
-        .addEventListener("click", function () {
+        .menu a:hover {
+            background: #14543f;
+            color: #d4af37;
+        }
 
-            window.location.href = "bibliotheque.html";
+        /* CONTENU */
+        main {
+            padding: 30px 20px 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .bienvenue {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .bienvenue h1 {
+            color: #d4af37;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .bienvenue p {
+            color: #ddd;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* CARTES */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .carte {
+            background: #0b3d2e;
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .carte:hover {
+            transform: translateY(-4px);
+            background: #14543f;
+            border-color: #d4af37;
+        }
+
+        .icone {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .carte h2 {
+            color: #d4af37;
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .carte p {
+            font-size: 13px;
+            color: #ddd;
+            line-height: 1.4;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+
+            header {
+                height: 65px;
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 14px;
+                max-width: 240px;
+            }
+
+            .menu-btn {
+                width: 42px;
+                height: 42px;
+            }
+
+            .menu {
+                top: 65px;
+            }main {
+                padding: 25px 15px 35px;
+            }
+
+            .bienvenue h1 {
+                font-size: 23px;
+            }
+
+            .bienvenue p {
+                font-size: 14px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .carte {
+                padding: 22px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            DAHIRATOUL IMANI WAL HAMAL
+        </div>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+        <!-- MENU -->
+        <nav class="menu" id="menu">
+
+            <a href="waxtaan.html">🕌 Waxtaan</a>
+
+            <a href="apprentissage.html">📚 Apprentissage</a>
+
+            <a href="evenements.html">📅 Événements</a>
+
+            <a href="galerie.html">🖼️ Galerie</a>
+
+            <a href="bibliotheque.html">📖 Bibliothèque</a>
+
+            <a href="a-propos.html">ℹ️ À-propos</a>
+
+            <a href="contact.html">📞 Contact</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTENU PRINCIPAL -->
+    <main>
+
+        <section class="bienvenue">
+
+            <h1>Bienvenue</h1>
+
+            <p>
+                Retrouvez les waxtaan, les apprentissages,
+                les événements et les ressources de
+                <strong>Dahiratoul Imani Wal Hamal</strong>.
+            </p>
+
+        </section>
+
+
+        <!-- RUBRIQUES -->
+        <section class="grid">
+
+            <a href="waxtaan.html" class="carte">
+
+                <div class="icone">🕌</div>
+
+                <h2>Waxtaan</h2>
+
+                <p>
+                    Écouter et retrouver les différents waxtaan.
+                </p>
+
+            </a>
+
+
+            <a href="apprentissage.html" class="carte">
+
+                <div class="icone">📚</div>
+
+                <h2>Apprentissage</h2>
+
+                <p>
+                    Découvrir les contenus d'apprentissage.
+                </p>
+
+            </a>
+
+
+            <a href="evenements.html" class="carte">
+
+                <div class="icone">📅</div>
+
+                <h2>Événements</h2>
+
+                <p>
+                    Retrouvez les événements à venir.
+                </p>
+
+            </a>
+
+
+            <a href="galerie.html" class="carte">
+
+                <div class="icone">🖼️</div>
+
+                <h2>Galerie</h2>
+
+                <p>
+                    Découvrez les photos et souvenirs.
+                </p>
+
+            </a>
+
+
+            <a href="bibliotheque.html" class="carte">
+
+                <div class="icone">📖</div>
+
+                <h2>Bibliothèque</h2>
+
+                <p>
+                    Retrouvez les ressources disponibles.
+                </p>
+
+            </a>
+
+
+            <a href="a-propos.html" class="carte">
+
+                <div class="icone">ℹ️</div>
+
+                <h2>À-propos</h2>
+
+                <p>
+                    Découvrez la Dahira Imani Wal Hamal.
+                </p>
+
+            </a>
+
+
+            <a href="contact.html" class="carte">
+
+                <div class="icone">📞</div>
+
+                <h2>Contact</h2>
+
+                <p>
+                    Contactez-nous facilement.
+                </p>
+
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 Dahiratoul Imani Wal Hamal
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        const menuBtn = document.getElementById("menuBtn");
+        const menu = document.getElementById("menu");
+
+        menuBtn.addEventListener("click", function () {
+
+            menu.classList.toggle("active");
 
         });
 
-</script>
 
-</body></html>
+        // Fermer le menu après avoir cliqué sur un lien
+        const liens = document.querySelectorAll(".menu a");
+
+        liens.forEach(function (lien) {
+
+            lien.addEventListener("click", function () {
+
+                menu.classList.remove("active");
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
