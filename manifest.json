@@ -1,0 +1,10 @@
+{
+  "name": "Dahiratoul Imani Wal Hamal",
+  "short_name": "Dahiratoul Imani",
+  "description": "Application de la Dahiratoul Imani Wal Hamal",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#031c14",
+  "theme_color": "#06452f",
+  "orientation": "portrait"
+}

@@ -1,126 +1,212 @@
-<!DOCTYPE html><html lang="fr"><head>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dahiratoul Imani Wal Hamal</title>
 
-<style>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
 
-    html,
-    body {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #003d32;
-    }
+    <meta name="theme-color" content="#06452f">
 
-    .accueil {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        height: 100dvh;
+    <meta name="description"
+        content="Dahiratoul Imani Wal Hamal">
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    <title>Dahiratoul Imani Wal Hamal</title>
 
-        background: #003d32;
-    }
 
-    .image-accueil {
-        width: 100%;
-        height: 100%;
+    <style>
 
-        object-fit: contain;
-
-        display: block;
-
-        user-select: none;
-        -webkit-user-drag: none;
-    }
-
-    #continuer {
-        position: absolute;
-
-        left: 50%;
-        bottom: 30px;
-
-        transform: translateX(-50%);
-
-        width: 190px;
-        height: 55px;
-
-        border: 2px solid rgba(255, 215, 100, 0.9);
-        border-radius: 30px;
-
-        background: rgba(0, 61, 50, 0.90);
-
-        color: #ffd766;
-
-        font-size: 18px;
-        font-weight: bold;
-
-        letter-spacing: 0.5px;
-
-        cursor: pointer;
-
-        z-index: 10;
-
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
-
-        transition: 0.2s ease;
-    }
-
-    #continuer:hover {
-        transform: translateX(-50%) scale(1.03);
-        background: rgba(0, 61, 50, 0.96);
-    }
-
-    #continuer:active {
-        transform: translateX(-50%) scale(0.96);
-    }
-
-    @media screen and (max-width: 600px) {
-
-        #continuer {
-            width: 165px;
-            height: 52px;
-            bottom: 30px;
-            font-size: 17px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-    }
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
 
-</style>
+        body {
+            overflow: hidden;
+            background: #031c14;
+            font-family: Arial, sans-serif;
+        }
 
-</head><body><main class="accueil">
+        .page {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-    <img
-        src="accueil.png"
-        alt="Dahiratoul Imani Wal Hamal"
-        class="image-accueil"
-    >
+        /* IMAGE D'ACCUEIL */
 
-    <button id="continuer" type="button">
-        Continuer
-    </button>
+        .image-accueil {
+            position: absolute;
+            inset: 0;
 
-</main>
+            width: 100%;
+            height: 100%;
 
-<script>
+            object-fit: contain;
 
-    document
-        .getElementById("continuer")
-        .addEventListener("click", function () {
+            background: #031c14;
+        }
 
-            window.location.href = "bibliotheque.html";
+        /* VOILE LÉGER */
 
-        });
+        .overlay {
+            position: absolute;
+            inset: 0;
 
-</script>
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0, 0, 0, 0.55),
+                    rgba(0, 0, 0, 0.05) 45%,
+                    rgba(0, 0, 0, 0.08)
+                );
 
-</body></html>
+            pointer-events: none;
+        }
+
+        /* BOUTON CONTINUER */
+
+        .continuer {
+            position: absolute;
+
+            bottom: 45px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: inline-block;
+
+            padding: 15px 42px;
+
+            color: white;
+            text-decoration: none;
+
+            font-size: 18px;
+            font-weight: bold;
+
+            background: rgba(3, 40, 27, 0.88);
+
+            border: 2px solid #d4af37;
+
+            border-radius: 30px;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.35);
+
+            transition: 0.3s;
+
+            z-index: 10;
+        }
+
+        .continuer:hover {
+            background: #06452f;
+            color: #d4af37;
+
+            transform:
+                translateX(-50%)
+                scale(1.03);
+        }
+
+        .continuer:active {
+            transform:
+                translateX(-50%)
+                scale(0.97);
+        }
+
+
+        /* PETITS ÉCRANS */
+
+        @media (max-width: 500px) {
+
+            .continuer {
+                bottom: 35px;
+
+                padding: 13px 35px;
+
+                font-size: 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="page">
+
+        <!-- IMAGE DE BIENVENUE -->
+
+        <img
+            src="accueil.png"
+            alt="Dahiratoul Imani Wal Hamal"
+            class="image-accueil"
+        >
+
+
+        <!-- VOILE -->
+
+        <div class="overlay"></div>
+
+
+        <!-- BOUTON -->
+
+        <a
+            href="accueil.html"
+            class="continuer"
+        >
+            Continuer
+        </a>
+
+    </div>
+
+
+    <!-- ENREGISTREMENT DU SERVICE WORKER -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener("load", function () {
+
+                navigator.serviceWorker.register("service-worker.js")
+                    .then(function () {
+
+                        console.log(
+                            "Service Worker enregistré"
+                        );
+
+                    })
+                    .catch(function (erreur) {
+
+                        console.log(
+                            "Service Worker non enregistré :",
+                            erreur
+                        );
+
+                    });
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
