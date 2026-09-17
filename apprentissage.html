@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apprentissage - Dahiratoul Imani Wal Hamal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f1e8;
+            color: #173b2a;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #0d3b2e;
+            color: white;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 20px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .menu-btn {
+            width: 45px;
+            height: 40px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 27px;
+            height: 3px;
+            background: #d4af37;
+            border-radius: 5px;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100vh;
+            background: #0d3b2e;
+            padding-top: 80px;
+            transition: 0.3s;
+            z-index: 2000;
+            box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu.active {
+            left: 0;
+        }
+
+        .menu a {
+            display: block;
+            padding: 17px 25px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 16px;
+        }
+
+        .menu a:hover {
+            background: #14543f;
+            color: #d4af37;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #d4af37;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .titre-page {
+            text-align: center;
+            padding: 30px 15px 10px;
+        }
+
+        .titre-page h2 {
+            color: #0d3b2e;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .titre-page p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .apprentissage-container {
+            width: 92%;
+            max-width: 900px;
+            margin: 25px auto 50px;
+        }
+
+        .apprentissage-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            margin-bottom: 22px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+            border-left: 5px solid #d4af37;
+        }
+
+        .apprentissage-card h3 {
+            color: #0d3b2e;
+            font-size: 21px;
+            margin-bottom: 15px;
+        }
+
+        .info {
+            margin: 8px 0;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .info strong {
+            color: #0d3b2e;
+        }
+
+        .description {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 18px;
+        }
+
+        .a-venir {
+            margin-top: 18px;
+            padding: 12px;
+            text-align: center;
+            background: #f0ead9;
+            color: #8a6d1d;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .message {
+            text-align: center;
+            padding: 35px 20px;
+            background: white;
+            border-radius: 15px;
+            color: #666;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        footer {
+            background: #0d3b2e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 17px;
+            }
+
+            .titre-page h2 {
+                font-size: 24px;
+            }
+
+            .apprentissage-card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <nav class="menu" id="menu">
+
+        <div class="close-menu" onclick="fermerMenu()">×</div>
+
+        <a href="index.html">Accueil</a>
+        <a href="waxtaan.html">Waxtaan</a>
+        <a href="apprentissage.html">Apprentissage</a>
+        <a href="evenements.html">Événements</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="a-propos.html">À-propos</a>
+        <a href="contact.html">Contact</a>
+
+    </nav>
+
+
+    <!-- EN-TÊTE -->
+    <header>
+
+        <button class="menu-btn" onclick="ouvrirMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <h1>DAHIRATOUL IMANI WAL HAMAL</h1>
+
+        <div style="width:45px;"></div>
+
+    </header>
+
+
+    <!-- TITRE -->
+    <section class="titre-page">
+
+        <h2>Apprentissage</h2>
+
+        <p>
+            Jàngal ak xam-xam ci sunu din
+        </p>
+
+    </section>
+
+
+    <!-- CONTENU -->
+    <main class="apprentissage-container" id="apprentissage">
+
+        <div class="message">
+            Chargement des apprentissages...
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Dahiratoul Imani Wal Hamal
+    </footer>
+
+
+    <!-- FIREBASE -->
+    <script type="module">
+
+        import { initializeApp }
+            from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+        import {
+            getFirestore,
+            collection,
+            getDocs,
+            query,
+            where
+        }
+        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+        // CONFIGURATION FIREBASE
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBgPHYlY14j_4nA1Az6aUXcJ5RKDTivk3w",
+            authDomain: "dahiratoul-imani-wal-hamal.firebaseapp.com",
+            projectId: "dahiratoul-imani-wal-hamal",
+            storageBucket: "dahiratoul-imani-wal-hamal.firebasestorage.app",
+            messagingSenderId: "744325643903",
+            appId: "1:744325643903:web:35be72376f7d6de578094a",
+            measurementId: "G-XL626J35BP"
+        };
+
+
+        // INITIALISATION
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+
+        // CHARGER LES APPRENTISSAGES
+
+        async function chargerApprentissages() {
+
+            const conteneur =
+                document.getElementById("apprentissage");
+
+            try {
+
+                const q = query(
+                    collection(db, "contenus"),
+                    where("type", "==", "apprentissage")
+                );
+
+                const resultat = await getDocs(q);
+
+                conteneur.innerHTML = "";
+
+
+                // AUCUN CONTENU
+
+                if (resultat.empty) {
+
+                    conteneur.innerHTML = `
+                        <div class="message">
+                            Aucun apprentissage disponible pour le moment.
+                        </div>
+                    `;
+
+                    return;
+                }
+
+
+                // AFFICHAGE
+
+                resultat.forEach((documentFirebase) => {
+
+                    const contenu =
+                        documentFirebase.data();
+
+
+                    const titre =
+                        contenu.titre || "Apprentissage";
+
+                    const theme =
+                        contenu.theme || "À venir";
+
+                    const date =
+                        contenu.date || "À venir";
+
+                    const lieu =
+                        contenu.lieu || "À venir";
+
+                    const description =
+                        contenu.description ||
+                        "Aucune description disponible.";
+
+
+                    // CARTE
+
+                    const carte =
+                        document.createElement("div");
+
+                    carte.className =
+                        "apprentissage-card";
+
+
+                    carte.innerHTML = `
+
+                        <h3>
+                            ${titre}
+                        </h3>
+
+                        <p class="info">
+                            <strong>Thème :</strong>
+                            ${theme}
+                        </p>
+
+                        <p class="info">
+                            <strong>Date :</strong>
+                            ${date}
+                        </p>
+
+                        <p class="info">
+                            <strong>Lieu :</strong>
+                            ${lieu}
+                        </p>
+
+                        <div class="description">
+                            ${description}
+                        </div>
+
+                    `;
+
+
+                    // AUDIO
+
+                    if (contenu.audio) {
+
+                        const audio =
+                            document.createElement("audio");
+
+                        audio.controls = true;
+
+                        audio.src = contenu.audio;
+
+                        audio.preload = "metadata";
+
+                        carte.appendChild(audio);
+
+                    } else {
+
+                        const badge =
+                            document.createElement("div");
+
+                        badge.className = "a-venir";
+
+                        badge.textContent =
+                            " à venir";
+
+                        carte.appendChild(badge);
+                    }
+
+
+                    conteneur.appendChild(carte);
+
+                });
+
+
+                // UN SEUL AUDIO À LA FOIS
+
+                const audios =
+                    document.querySelectorAll("audio");
+
+                audios.forEach(function(audio) {
+
+                    audio.addEventListener(
+                        "play",
+                        function() {
+
+                            audios.forEach(
+                                function(autreAudio) {
+
+                                    if (
+                                        autreAudio !== audio
+                                    ) {
+                                        autreAudio.pause();
+                                    }
+
+                                }
+                            );
+
+                        }
+                    );
+
+                });
+
+            }
+
+            catch (erreur) {
+
+                console.error(
+                    "Erreur Firebase :",
+                    erreur
+                );
+
+                conteneur.innerHTML = `
+
+                    <div class="message">
+
+                        Impossible de charger
+                        les apprentissages.
+
+                        <br><br>
+
+                        Vérifiez votre connexion
+                        à Firebase.
+
+                    </div>
+
+                `;
+            }
+        }
+
+
+        // LANCER LE CHARGEMENT
+
+        chargerApprentissages();
+
+
+    </script>
+
+
+    <!-- MENU JAVASCRIPT -->
+
+    <script>
+
+        function ouvrirMenu() {
+
+            document
+                .getElementById("menu")
+                .classList.add("active");
+
+        }
+
+
+        function fermerMenu() {
+
+            document
+                .getElementById("menu")
+                .classList.remove("active");
+
+        }
+
+    </script>
+
+</body>
+
+</html>

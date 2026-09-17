@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Administration - Dahiratoul Imani Wal Hamal</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #071b14;
+            color: white;
+            min-height: 100vh;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        header {
+            background: #0b5d3b;
+            padding: 18px 20px;
+            text-align: center;
+            border-bottom: 2px solid #d8b45a;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 22px;
+        }
+
+        header p {
+            color: #d8b45a;
+            margin-top: 6px;
+        }
+
+
+        /* ================= CONNEXION ================= */
+
+        .connexion {
+            width: 92%;
+            max-width: 500px;
+            margin: 50px auto;
+            background: #102820;
+            border: 1px solid #d8b45a;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        .connexion h2 {
+            text-align: center;
+            color: #d8b45a;
+            margin-bottom: 25px;
+        }
+
+
+        /* ================= ADMIN ================= */
+
+        .admin {
+            display: none;
+            width: 94%;
+            max-width: 1100px;
+            margin: 30px auto;
+        }
+
+
+        .bienvenue {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .bienvenue h2 {
+            color: #d8b45a;
+            margin-bottom: 8px;
+        }
+
+
+        /* ================= FORMULAIRE ================= */
+
+        .formulaire {
+            background: #102820;
+            border: 1px solid rgba(216,180,90,0.5);
+            border-radius: 18px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .formulaire h2 {
+            color: #d8b45a;
+            margin-bottom: 20px;
+        }
+
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            color: #d8b45a;
+            font-weight: bold;
+        }
+
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            border-radius: 8px;
+            border: 1px solid #446b5b;
+            background: #071b14;
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #d8b45a;
+        }
+
+
+        /* ================= BOUTONS ================= */
+
+        button {
+            cursor: pointer;
+        }
+
+        .ajouter {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #d8b45a;
+            color: #071b14;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .ajouter:hover {
+            background: #e7ca7d;
+        }
+
+        .deconnexion {
+            display: block;
+            margin: 0 auto 30px;
+            padding: 11px 22px;
+            border-radius: 20px;
+            border: 1px solid #d8b45a;
+            background: transparent;
+            color: #d8b45a;
+            font-size: 15px;
+        }
+
+        .deconnexion:hover {
+            background: #d8b45a;
+            color: #071b14;
+        }
+
+
+        /* ================= MESSAGE ================= */
+
+        #message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+        /* ================= LISTE ================= */
+
+        .liste-section {
+            background: #102820;
+            border: 1px solid rgba(216,180,90,0.5);
+            border-radius: 18px;
+            padding: 25px;
+        }
+
+        .liste-section h2 {
+            color: #d8b45a;
+            margin-bottom: 20px;
+        }
+
+
+        .contenu {
+            background: #071b14;
+            border: 1px solid #355548;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+
+        .contenu h3 {
+            color: #d8b45a;
+            margin-bottom: 10px;
+        }
+
+        .contenu p {
+            margin: 6px 0;
+            color: #dce7e2;
+        }
+
+
+        .supprimer {
+            margin-top: 12px;
+            padding: 9px 15px;
+            border: 1px solid #c96a6a;
+            border-radius: 8px;
+            background: transparent;
+            color: #ff9b9b;
+        }
+
+        .supprimer:hover {
+            background: #c96a6a;
+            color: white;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 18px;
+            }
+
+            .connexion {
+                margin-top: 30px;
+                padding: 22px;
+            }
+
+            .formulaire,
+            .liste-section {
+                padding: 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <h1>
+        DAHIRATOUL IMANI WAL HAMAL
+    </h1>
+
+    <p>
+        Administration
+    </p>
+
+</header>
+
+
+
+<!-- ================= CONNEXION ================= -->
+
+<section class="connexion" id="connexion">
+
+    <h2>
+        🔐 Connexion administrateur
+    </h2>
+
+
+    <label for="email">
+        Adresse e-mail
+    </label>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Votre adresse e-mail"
+    >
+
+
+    <label for="password">
+        Mot de passe
+    </label>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Votre mot de passe"
+    >
+
+
+    <button
+        class="ajouter"
+        id="connexionBtn">
+
+        Se connecter
+
+    </button>
+
+
+    <div id="message"></div>
+
+</section>
+
+
+
+<!-- ================= ESPACE ADMIN ================= -->
+
+<section class="admin" id="admin">
+
+
+    <div class="bienvenue">
+
+        <h2>
+            Tableau de bord
+        </h2>
+
+        <p>
+            Gérez les contenus de votre site.
+        </p>
+
+    </div>
+
+
+    <button
+        class="deconnexion"
+        id="deconnexionBtn">
+
+        🚪 Se déconnecter
+
+    </button>
+
+
+
+    <!-- ================= FORMULAIRE ================= -->
+
+    <div class="formulaire">
+
+        <h2>
+            ➕ Ajouter un contenu
+        </h2>
+
+
+        <label for="type">
+            Type de contenu
+        </label>
+
+        <select id="type">
+
+            <option value="waxtaan">
+                Waxtaan
+            </option>
+
+            <option value="evenement">
+                Événement
+            </option>
+
+            <option value="apprentissage">
+                Apprentissage
+            </option>
+
+        </select>
+
+
+        <label for="titre">
+            Titre
+        </label>
+
+        <input
+            type="text"
+            id="titre"
+            placeholder="Exemple : Waxtaan 1"
+        >
+
+
+        <label for="theme">
+            Thème / Activité
+        </label>
+
+        <input
+            type="text"
+            id="theme"
+            placeholder="Exemple : À venir"
+        >
+
+
+        <label for="date">
+            Date
+        </label>
+
+        <input
+            type="text"
+            id="date"
+            placeholder="Exemple : À venir"
+        >
+
+
+        <label for="lieu">
+            Lieu
+        </label>
+
+        <input
+            type="text"
+            id="lieu"
+            placeholder="Exemple : À venir"
+        >
+
+
+        <label for="description">
+            Description
+        </label>
+
+        <textarea
+            id="description"
+            placeholder="Description du contenu">
+        </textarea>
+
+
+        <button
+            class="ajouter"
+            id="ajouterBtn">
+
+            💾 Enregistrer
+
+        </button>
+
+
+        <div id="messageAdmin"></div>
+
+    </div>
+
+
+
+    <!-- ================= LISTE ================= -->
+
+    <div class="liste-section">
+
+        <h2>
+            📋 Contenus enregistrés
+        </h2>
+
+        <div id="liste">
+
+            Chargement...
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= FIREBASE ================= -->
+
+<script type="module">
+
+    import {
+        initializeApp
+    }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+    import {
+        getAuth,
+        signInWithEmailAndPassword,
+        onAuthStateChanged,
+        signOut
+    }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+    import {
+        getFirestore,
+        collection,
+        addDoc,
+        getDocs,
+        deleteDoc,
+        doc,
+        serverTimestamp
+    }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+    /* ================= CONFIGURATION FIREBASE ================= */
+
+    const firebaseConfig = {
+
+        apiKey: "AIzaSyBgPHYlY14j_4nA1Az6aUXcJ5RKDTivk3w",
+
+        authDomain:
+            "dahiratoul-imani-wal-hamal.firebaseapp.com",
+
+        projectId:
+            "dahiratoul-imani-wal-hamal",
+
+        storageBucket:
+            "dahiratoul-imani-wal-hamal.firebasestorage.app",
+
+        messagingSenderId:
+            "744325643903",
+
+        appId:
+            "1:744325643903:web:35be72376f7d6de578094a",
+
+        measurementId:
+            "G-XL626J35BP"
+
+    };
+
+
+
+    /* ================= INITIALISATION ================= */
+
+    const app = initializeApp(firebaseConfig);
+
+    const auth = getAuth(app);
+
+    const db = getFirestore(app);
+
+
+
+    /* ================= ELEMENTS ================= */
+
+    const connexion =
+        document.getElementById("connexion");
+
+    const admin =
+        document.getElementById("admin");
+
+    const message =
+        document.getElementById("message");
+
+    const liste =
+        document.getElementById("liste");
+
+
+
+    /* ================= CONNEXION ================= */
+
+    document
+        .getElementById("connexionBtn")
+        .addEventListener("click", async () => {
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+
+            if (!email || !password) {
+
+                message.textContent =
+                    "Veuillez remplir tous les champs.";
+
+                return;
+            }
+
+
+            try {
+
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+                message.textContent = "";
+
+            }
+            catch (error) {
+
+                console.error(error);
+
+                message.textContent =
+                    "E-mail ou mot de passe incorrect.";
+
+            }
+
+        });
+
+
+
+    /* ================= ETAT DE CONNEXION ================= */
+
+    onAuthStateChanged(auth, (user) => {
+
+        if (user) {
+
+            connexion.style.display = "none";
+
+            admin.style.display = "block";
+
+            chargerContenus();
+
+        }
+        else {
+
+            connexion.style.display = "block";
+
+            admin.style.display = "none";
+
+        }
+
+    });
+
+
+
+    /* ================= AJOUTER ================= */
+
+    document
+        .getElementById("ajouterBtn")
+        .addEventListener("click", async () => {
+
+            const type =
+                document.getElementById("type").value;
+
+            const titre =
+                document.getElementById("titre").value.trim();
+
+            const theme =
+                document.getElementById("theme").value.trim();
+
+            const date =
+                document.getElementById("date").value.trim();
+
+            const lieu =
+                document.getElementById("lieu").value.trim();
+
+            const description =
+                document.getElementById("description").value.trim();
+
+
+            if (!titre) {
+
+                document.getElementById("messageAdmin").textContent =
+                    "Veuillez entrer un titre.";
+
+                return;
+
+            }
+
+
+            try {
+
+                await addDoc(
+                    collection(db, "contenus"),
+                    {
+
+                        type: type,
+
+                        titre: titre,
+
+                        theme: theme || "À venir",
+
+                        date: date || "À venir",
+
+                        lieu: lieu || "À venir",
+
+                        description: description,
+
+                        creeLe: serverTimestamp()
+
+                    }
+                );
+
+
+                document.getElementById("messageAdmin").textContent =
+                    "✅ Contenu enregistré avec succès.";
+
+
+                document.getElementById("titre").value = "";
+
+                document.getElementById("theme").value = "";
+
+                document.getElementById("date").value = "";
+
+                document.getElementById("lieu").value = "";
+
+                document.getElementById("description").value = "";
+
+
+                chargerContenus();
+
+            }
+            catch (error) {
+
+                console.error(error);
+
+                document.getElementById("messageAdmin").textContent =
+                    "❌ Erreur lors de l'enregistrement.";
+
+            }
+
+        });
+
+
+
+    /* ================= CHARGER ================= */
+
+    async function chargerContenus() {
+
+        liste.textContent =
+            "Chargement...";
+
+
+        try {
+
+            const resultat =
+                await getDocs(
+                    collection(db, "contenus")
+                );
+
+
+            liste.innerHTML = "";
+
+
+            if (resultat.empty) {
+
+                liste.textContent =
+                    "Aucun contenu enregistré.";
+
+                return;
+
+            }
+
+
+            resultat.forEach((documentFirebase) => {
+
+                const contenu =
+                    documentFirebase.data();
+
+
+                const bloc =
+                    document.createElement("div");
+
+                bloc.className =
+                    "contenu";
+
+
+                bloc.innerHTML = `
+
+                    <h3>
+                        ${contenu.titre || "Sans titre"}
+                    </h3>
+
+                    <p>
+                        <strong>Type :</strong>
+                        ${contenu.type || ""}
+                    </p>
+
+                    <p>
+                        <strong>Thème / Activité :</strong>
+                        ${contenu.theme || "À venir"}
+                    </p>
+
+                    <p>
+                        <strong>Date :</strong>
+                        ${contenu.date || "À venir"}
+                    </p>
+
+                    <p>
+                        <strong>Lieu :</strong>
+                        ${contenu.lieu || "À venir"}
+                    </p>
+
+                    <p>
+                        <strong>Description :</strong>
+                        ${contenu.description || ""}
+                    </p>
+
+                    <button
+                        class="supprimer"
+                        data-id="${documentFirebase.id}">
+
+                        🗑️ Supprimer
+
+                    </button>
+
+                `;
+
+
+                liste.appendChild(bloc);
+
+            });
+
+
+
+            /* ================= SUPPRESSION ================= */
+
+            document
+                .querySelectorAll(".supprimer")
+                .forEach((bouton) => {
+
+                    bouton.addEventListener(
+                        "click",
+                        async () => {
+
+                            const id =
+                                bouton.dataset.id;
+
+
+                            if (
+                                !confirm(
+                                    "Voulez-vous supprimer ce contenu ?"
+                                )
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            try {
+
+                                await deleteDoc(
+                                    doc(
+                                        db,
+                                        "contenus",
+                                        id
+                                    )
+                                );
+
+
+                                chargerContenus();
+
+                            }
+                            catch (error) {
+
+                                console.error(error);
+
+                                alert(
+                                    "Impossible de supprimer ce contenu."
+                                );
+
+                            }
+
+                        }
+                    );
+
+                });
+
+        }
+        catch (error) {
+
+            console.error(error);
+
+            liste.textContent =
+                "Impossible de charger les contenus.";
+
+        }
+
+    }
+
+
+
+    /* ================= DECONNEXION ================= */
+
+    document
+        .getElementById("deconnexionBtn")
+        .addEventListener("click", async () => {
+
+            await signOut(auth);
+
+        });
+
+</script>
+
+
+</body>
+
+</html>

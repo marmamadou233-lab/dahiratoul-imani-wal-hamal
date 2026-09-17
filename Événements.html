@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Événements - Dahiratoul Imani Wal Hamal</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #071b14;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+            height: 75px;
+            background: #0b5d3b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            border-bottom: 2px solid #d8b45a;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #d8b45a;
+            color: #071b14;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        header h1 {
+            font-size: 20px;
+            text-align: center;
+            flex: 1;
+            margin: 0 15px;
+        }
+
+        .menu-btn {
+            font-size: 30px;
+            cursor: pointer;
+            color: #d8b45a;
+            background: none;
+            border: none;
+        }
+
+        /* MENU */
+        .menu {
+            display: none;
+            position: absolute;
+            top: 75px;
+            right: 15px;
+            background: #0b5d3b;
+            width: 220px;
+            border: 1px solid #d8b45a;
+            border-radius: 10px;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-bottom: 1px solid rgba(216, 180, 90, 0.3);
+        }
+
+        .menu a:hover {
+            background: #d8b45a;
+            color: #071b14;
+        }
+
+        .menu.active {
+            display: block;
+        }
+
+        /* RETOUR */
+        .retour-container {
+            padding: 20px;
+        }
+
+        .bouton-retour {
+            background: transparent;
+            color: #d8b45a;
+            border: 1px solid #d8b45a;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .bouton-retour:hover {
+            background: #d8b45a;
+            color: #071b14;
+        }
+
+        /* TITRE */
+        .titre-page {
+            text-align: center;
+            margin: 10px 20px 30px;
+        }
+
+        .titre-page h2 {
+            color: #d8b45a;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .titre-page p {
+            color: #ddd;
+            font-size: 15px;
+        }
+
+        /* CONTENEUR */
+        .evenements-container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            padding-bottom: 40px;
+        }
+
+        /* CARTE */
+        .evenement-card {
+            background: #102820;
+            border: 1px solid rgba(216, 180, 90, 0.5);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .icone {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #0b5d3b;
+            border: 3px solid #d8b45a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 15px;
+        }
+
+        .evenement-card h3 {
+            text-align: center;
+            color: #d8b45a;
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .information {
+            margin: 10px 0;
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .information strong {
+            color: #d8b45a;
+        }
+
+        .description {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(216, 180, 90, 0.3);
+            line-height: 1.6;
+            color: #ddd;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 7px 14px;
+            border-radius: 20px;
+            background: #d8b45a;
+            color: #071b14;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        /* CHARGEMENT */
+        .message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 40px 20px;
+            color: #d8b45a;
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            background: #0b5d3b;
+            border-top: 1px solid #d8b45a;
+            color: #ddd;
+            margin-top: 20px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 15px;
+            }
+
+            .evenements-container {
+                grid-template-columns: 1fr;
+                width: 92%;
+            }
+
+            .titre-page h2 {
+                font-size: 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">☪</div>
+
+        <h1>DAHIRATOUL IMANI WAL HAMAL</h1>
+
+        <button class="menu-btn" onclick="ouvrirMenu()">☰</button>
+
+    </header>
+
+
+    <!-- MENU -->
+    <div class="menu" id="menu">
+
+        <a href="index.html">Accueil</a>
+
+        <a href="waxtaan.html">Waxtaan</a>
+
+        <a href="apprentissage.html">Apprentissage</a>
+
+        <a href="evenements.html">Événements</a>
+
+        <a href="galerie.html">Galerie</a>
+
+        <a href="a-propos.html">À-propos</a>
+
+        <a href="contact.html">Contact</a>
+
+    </div>
+
+
+    <!-- RETOUR -->
+    <div class="retour-container">
+
+        <button class="bouton-retour" onclick="history.back()">
+            ← Retour
+        </button>
+
+    </div>
+
+
+    <!-- TITRE -->
+    <div class="titre-page">
+
+        <h2>Événements</h2>
+
+        <p>
+            Découvrez les activités et événements de
+            Dahiratoul Imani Wal Hamal.
+        </p>
+
+    </div>
+
+
+    <!-- EVENEMENTS -->
+    <div class="evenements-container" id="evenements">
+
+        <div class="message">
+            Chargement des événements...
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        © 2026 Dahiratoul Imani Wal Hamal
+
+    </footer>
+
+
+    <!-- FIREBASE -->
+    <script type="module">
+
+        import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+        import {
+            getFirestore,
+            collection,
+            getDocs,
+            query,
+            where,
+            orderBy
+        }
+        from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+        /* CONFIGURATION FIREBASE */
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyBgPHYlY14j_4nA1Az6aUXcJ5RKDTivk3w",
+
+            authDomain:
+                "dahiratoul-imani-wal-hamal.firebaseapp.com",
+
+            projectId:
+                "dahiratoul-imani-wal-hamal",
+
+            storageBucket:
+                "dahiratoul-imani-wal-hamal.firebasestorage.app",
+
+            messagingSenderId:
+                "744325643903",
+
+            appId:
+                "1:744325643903:web:35be72376f7d6de578094a",
+
+            measurementId:
+                "G-XL626J35BP"
+        };
+
+
+        /* INITIALISATION */
+
+        const app = initializeApp(firebaseConfig);
+
+        const db = getFirestore(app);
+
+
+        /* MENU */
+
+        function ouvrirMenu() {
+
+            document
+                .getElementById("menu")
+                .classList.toggle("active");
+
+        }
+
+        window.ouvrirMenu = ouvrirMenu;
+
+
+        /* CHARGER LES ÉVÉNEMENTS */
+
+        async function chargerEvenements() {
+
+            const conteneur =
+                document.getElementById("evenements");
+
+            try {
+
+                const q = query(
+                    collection(db, "contenus"),
+                    where("type", "==", "evenement")
+                );
+
+                const resultat =
+                    await getDocs(q);
+
+                conteneur.innerHTML = "";
+
+
+                /* AUCUN ÉVÉNEMENT */
+
+                if (resultat.empty) {
+
+                    conteneur.innerHTML = `
+                        <div class="message">
+                            Aucun événement disponible pour le moment.
+                        </div>
+                    `;
+
+                    return;
+                }
+
+
+                /* AFFICHER LES ÉVÉNEMENTS */
+
+                resultat.forEach((document) => {
+
+                    const evenement = document.data();
+
+                    const titre =
+                        evenement.titre || "Événement";
+
+                    const date =
+                        evenement.date || "À venir";
+
+                    const lieu =
+                        evenement.lieu || "À venir";
+
+                    const theme =
+                        evenement.theme || "À venir";
+
+                    const description =
+                        evenement.description ||
+                        "Informations à venir.";
+
+
+                    const carte =
+                        document.createElement("div");
+
+                    carte.className =
+                        "evenement-card";
+
+
+                    carte.innerHTML = `
+
+                        <div class="icone">
+                            🕌
+                        </div>
+
+                        <h3>
+                            ${titre}
+                        </h3>
+
+                        <div class="information">
+                            <strong>📅 Date :</strong>
+                            ${date}
+                        </div>
+
+                        <div class="information">
+                            <strong>📍 Lieu :</strong>
+                            ${lieu}
+                        </div>
+
+                        <div class="information">
+                            <strong>📖 Thème :</strong>
+                            ${theme}
+                        </div>
+
+                        <div class="description">
+                            ${description}
+                        </div>
+
+                        <span class="badge">
+                            À venir
+                        </span>
+
+                    `;
+
+
+                    conteneur.appendChild(carte);
+
+                });
+
+            }
+
+            catch (erreur) {
+
+                console.error(
+                    "Erreur Firebase :",
+                    erreur
+                );
+
+                conteneur.innerHTML = `
+
+                    <div class="message">
+
+                        Impossible de charger
+                        les événements.
+
+                        <br><br>
+
+                        Vérifiez la connexion
+                        à Firebase.
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        /* LANCEMENT */
+
+        chargerEvenements();
+
+    </script>
+
+</body>
+
+</html>
