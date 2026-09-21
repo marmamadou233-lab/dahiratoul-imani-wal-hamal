@@ -8,6 +8,7 @@
     <title>Accueil - Dahiratoul Imani Wal Hamal</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,377 +16,310 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #061f18;
-            color: white;
             min-height: 100vh;
-        }
-
-        /* HEADER */
-        header {
-            height: 70px;
-            background: #0b3d2e;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 20px;
-            border-bottom: 2px solid #c9a227;
-            position: relative;
-        }
-
-        .logo {
-            color: #d4af37;
-            font-size: 18px;
-            font-weight: bold;
-            max-width: 280px;
-        }
-
-        /* BOUTON MENU */
-        .menu-btn {
-            width: 45px;
-            height: 45px;
-            border: 1px solid #d4af37;
-            border-radius: 8px;
-            background: transparent;
-            color: #d4af37;
-            font-size: 25px;
-            cursor: pointer;
-        }
-
-        /* MENU */
-        .menu {
-            display: none;
-            position: absolute;
-            top: 70px;
-            right: 15px;
-            width: 230px;
-            background: #0b3d2e;
-            border: 1px solid #c9a227;
-            border-radius: 10px;
-            overflow: hidden;
-            z-index: 100;
-        }
-
-        .menu.active {
-            display: block;
-        }
-
-        .menu a {
-            display: block;
-            padding: 15px;
+            font-family: Arial, sans-serif;
             color: white;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(circle at 50% 0%, rgba(218, 177, 76, 0.25), transparent 35%),
+                linear-gradient(135deg, #031b12, #075333, #021b12);
         }
 
-        .menu a:hover {
-            background: #14543f;
-            color: #d4af37;
+        body::before {
+            content: "☪";
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 350px;
+            color: rgba(216, 180, 90, 0.035);
+            z-index: 0;
+            pointer-events: none;
         }
 
-        /* CONTENU */
-        main {
-            padding: 30px 20px 40px;
-            max-width: 1000px;
-            margin: auto;
+        .page {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            padding: 25px 18px 35px;
         }
 
-        .bienvenue {
+        .header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
 
-        .bienvenue h1 {
-            color: #d4af37;
-            font-size: 28px;
+        .ornement {
+            color: #d8b45a;
+            font-size: 25px;
+            letter-spacing: 8px;
             margin-bottom: 12px;
         }
 
-        .bienvenue p {
-            color: #ddd;
-            font-size: 16px;
-            line-height: 1.6;
+        .header h1 {
+            font-size: clamp(25px, 6vw, 44px);
+            line-height: 1.2;
+            color: white;
+            text-shadow: 0 3px 12px rgba(0,0,0,0.7);
         }
 
-        /* CARTES */
-        .grid {
+        .header h1 span {
+            color: #d8b45a;
+        }
+
+        .header p {
+            margin-top: 10px;
+            color: #eadba8;
+            font-size: 16px;
+        }
+
+        .ligne {
+            width: 180px;
+            height: 2px;
+            background: #d8b45a;
+            margin: 18px auto 0;
+            position: relative;
+        }
+
+        .ligne::before,
+        .ligne::after {
+            content: "✦";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d8b45a;
+            font-size: 16px;
+        }
+
+        .ligne::before {
+            left: -20px;
+        }
+
+        .ligne::after {
+            right: -20px;
+        }
+
+        .menu {
+            max-width: 900px;
+            margin: auto;
+
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 18px;
         }
 
         .carte {
-            background: #0b3d2e;
-            border: 1px solid rgba(212, 175, 55, 0.6);
-            border-radius: 15px;
-            padding: 25px 15px;
+            min-height: 145px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
             text-align: center;
             text-decoration: none;
             color: white;
-            transition: 0.3s;
+
+            background: rgba(2, 43, 28, 0.72);
+
+            border: 1px solid rgba(216, 180, 90, 0.8);
+            border-radius: 22px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.35),
+                inset 0 0 25px rgba(216,180,90,0.04);
+
+            backdrop-filter: blur(6px);
+
+            transition: 0.3s ease;
         }
 
         .carte:hover {
-            transform: translateY(-4px);
-            background: #14543f;
-            border-color: #d4af37;
+            transform: translateY(-5px);
+            background: rgba(7, 73, 47, 0.9);
+            border-color: #f0cf72;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
         }
 
         .icone {
-            font-size: 40px;
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             margin-bottom: 12px;
+
+            border-radius: 50%;
+
+            border: 1px solid #d8b45a;
+            background: rgba(216,180,90,0.10);
+
+            color: #e4c66f;
+            font-size: 27px;
         }
 
         .carte h2 {
-            color: #d4af37;
-            font-size: 19px;
-            margin-bottom: 8px;
+            font-size: 20px;
+            margin-bottom: 7px;
         }
 
         .carte p {
             font-size: 13px;
-            color: #ddd;
-            line-height: 1.4;
+            color: #e5d9a9;
         }
 
-        /* FOOTER */
-        footer {
+        .footer {
             text-align: center;
-            padding: 25px 15px;
-            margin-top: 20px;
-            border-top: 1px solid rgba(212, 175, 55, 0.4);
-            color: #aaa;
+            margin-top: 35px;
+            color: #d8c98e;
             font-size: 13px;
+        }.footer .etoiles {
+            color: #d8b45a;
+            font-size: 19px;
+            letter-spacing: 5px;
+            margin-bottom: 8px;
         }
 
-        /* MOBILE */
         @media (max-width: 600px) {
 
-            header {
-                height: 65px;
-                padding: 0 15px;
+            .page {
+                padding: 20px 13px 30px;
             }
 
-            .logo {
+            .header {
+                margin-bottom: 22px;
+            }
+
+            .header h1 {
+                font-size: 27px;
+            }
+
+            .header p {
                 font-size: 14px;
-                max-width: 240px;
-            }
-
-            .menu-btn {
-                width: 42px;
-                height: 42px;
             }
 
             .menu {
-                top: 65px;
-            }main {
-                padding: 25px 15px 35px;
-            }
-
-            .bienvenue h1 {
-                font-size: 23px;
-            }
-
-            .bienvenue p {
-                font-size: 14px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
 
             .carte {
-                padding: 22px 15px;
+                min-height: 135px;
+                padding: 12px;
+                border-radius: 17px;
+            }
+
+            .icone {
+                width: 50px;
+                height: 50px;
+                font-size: 23px;
+                margin-bottom: 9px;
+            }
+
+            .carte h2 {
+                font-size: 17px;
+            }
+
+            .carte p {
+                font-size: 11px;
             }
         }
+
+        @media (max-width: 380px) {
+
+            .menu {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
+
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
+    <div class="page">
 
-        <div class="logo">
-            DAHIRATOUL IMANI WAL HAMAL
-        </div>
+        <header class="header">
 
-        <button class="menu-btn" id="menuBtn">
-            ☰
-        </button>
+            <div class="ornement">
+                ✦ ۞ ✦
+            </div>
 
-        <!-- MENU -->
-        <nav class="menu" id="menu">
-
-            <a href="waxtaan.html">🕌 Waxtaan</a>
-
-            <a href="apprentissage.html">📚 Apprentissage</a>
-
-            <a href="evenements.html">📅 Événements</a>
-
-            <a href="galerie.html">🖼️ Galerie</a>
-
-            <a href="bibliotheque.html">📖 Bibliothèque</a>
-
-            <a href="a-propos.html">ℹ️ À-propos</a>
-
-            <a href="contact.html">📞 Contact</a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- CONTENU PRINCIPAL -->
-    <main>
-
-        <section class="bienvenue">
-
-            <h1>Bienvenue</h1>
+            <h1>
+                DAHIRATOUL IMANI
+                <br>
+                <span>WAL HAMAL</span>
+            </h1>
 
             <p>
-                Retrouvez les waxtaan, les apprentissages,
-                les événements et les ressources de
-                <strong>Dahiratoul Imani Wal Hamal</strong>.
+                Bienvenue dans notre espace
             </p>
 
-        </section>
+            <div class="ligne"></div>
+
+        </header>
 
 
-        <!-- RUBRIQUES -->
-        <section class="grid">
+        <main class="menu">
 
             <a href="waxtaan.html" class="carte">
-
-                <div class="icone">🕌</div>
-
+                <div class="icone">🎙</div>
                 <h2>Waxtaan</h2>
-
-                <p>
-                    Écouter et retrouver les différents waxtaan.
-                </p>
-
+                <p>Écouter les waxtaan</p>
             </a>
-
 
             <a href="apprentissage.html" class="carte">
-
-                <div class="icone">📚</div>
-
+                <div class="icone">📖</div>
                 <h2>Apprentissage</h2>
-
-                <p>
-                    Découvrir les contenus d'apprentissage.
-                </p>
-
+                <p>Apprendre et découvrir</p>
             </a>
-
 
             <a href="evenements.html" class="carte">
-
                 <div class="icone">📅</div>
-
                 <h2>Événements</h2>
-
-                <p>
-                    Retrouvez les événements à venir.
-                </p>
-
+                <p>Nos événements à venir</p>
             </a>
-
 
             <a href="galerie.html" class="carte">
-
-                <div class="icone">🖼️</div>
-
+                <div class="icone">🖼</div>
                 <h2>Galerie</h2>
-
-                <p>
-                    Découvrez les photos et souvenirs.
-                </p>
-
+                <p>Photos et souvenirs</p>
             </a>
 
-
-            <a href="bibliotheque.html" class="carte">
-
-                <div class="icone">📖</div>
-
-                <h2>Bibliothèque</h2>
-
-                <p>
-                    Retrouvez les ressources disponibles.
-                </p>
-
-            </a>
-
-
-            <a href="a-propos.html" class="carte">
-
-                <div class="icone">ℹ️</div>
-
+            <a href="apropos.html" class="carte">
+                <div class="icone">ℹ</div>
                 <h2>À-propos</h2>
-
-                <p>
-                    Découvrez la Dahira Imani Wal Hamal.
-                </p>
-
+                <p>Découvrir notre Dahira</p>
             </a>
-
 
             <a href="contact.html" class="carte">
-
-                <div class="icone">📞</div>
-
+                <div class="icone">☎</div>
                 <h2>Contact</h2>
-
-                <p>
-                    Contactez-nous facilement.
-                </p>
-
+                <p>Nous contacter</p>
             </a>
 
-        </section>
-
-    </main>
+        </main>
 
 
-    <!-- FOOTER -->
-    <footer>
+        <footer class="footer">
 
-        © 2026 Dahiratoul Imani Wal Hamal
+            <div class="etoiles">
+                ✦ ✦ ✦
+            </div>
 
-    </footer>
+            <p>
+                Dahiratoul Imani Wal Hamal
+            </p>
 
+        </footer>
 
-    <!-- JAVASCRIPT -->
-    <script>
-
-        const menuBtn = document.getElementById("menuBtn");
-        const menu = document.getElementById("menu");
-
-        menuBtn.addEventListener("click", function () {
-
-            menu.classList.toggle("active");
-
-        });
-
-
-        // Fermer le menu après avoir cliqué sur un lien
-        const liens = document.querySelectorAll(".menu a");
-
-        liens.forEach(function (lien) {
-
-            lien.addEventListener("click", function () {
-
-                menu.classList.remove("active");
-
-            });
-
-        });
-
-    </script>
+    </div>
 
 </body>
 
