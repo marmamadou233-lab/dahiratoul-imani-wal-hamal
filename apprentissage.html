@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Apprentissage - Dahiratoul Imani Wal Hamal</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(212, 175, 55, 0.15),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #02140e,
+                    #06452f,
+                    #011b12
+                );
+        }
+
+        /* MENU */
+
+        .menu {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 9999;
+        }
+
+        .menu-button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #d4af37;
+            background: #06271c;
+            color: #d4af37;
+            font-size: 25px;
+        }
+
+        .menu-list {
+            display: none;
+
+            position: absolute;
+            top: 55px;
+            left: 0;
+
+            width: 220px;
+
+            background: #06271c;
+
+            border: 1px solid #d4af37;
+            border-radius: 12px;
+
+            overflow: hidden;
+        }
+
+        .menu-list.show {
+            display: block;
+        }
+
+        .menu-list a {
+            display: block;
+
+            padding: 14px;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-bottom:
+                1px solid
+                rgba(212, 175, 55, 0.2);
+        }
+
+        .menu-list a:hover {
+            background: #0b4b34;
+            color: #d4af37;
+        }
+
+
+        /* TITRE */
+
+        header {
+            text-align: center;
+            padding: 80px 15px 25px;
+        }
+
+        header h1 {
+            color: #d4af37;
+            font-size: 25px;
+        }
+
+        header p {
+            margin-top: 8px;
+            font-size: 18px;
+        }
+
+
+        /* CONTENU */
+
+        .container {
+            width: 94%;
+            max-width: 700px;
+
+            margin: auto;
+
+            padding-bottom: 40px;
+        }
+
+        #chargement {
+            text-align: center;
+
+            color: #d4af37;
+
+            padding: 30px;
+        }
+
+
+        /* CARTE */
+
+        .card {
+            background:
+                rgba(0, 0, 0, 0.40);
+
+            border:
+                1px solid
+                #a98924;
+
+            border-radius: 18px;
+
+            padding: 20px;
+
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            color: #d4af37;
+
+            margin-bottom: 15px;
+
+            font-size: 22px;
+        }
+
+        .info {
+            margin: 9px 0;
+
+            line-height: 1.5;
+        }
+
+        .info strong {
+            color: #d4af37;
+        }
+
+        .description {
+            margin-top: 15px;
+
+            line-height: 1.6;
+
+            color: #dddddd;
+        }
+
+
+        /* BOUTON PDF */
+
+        .pdf-button {
+            display: block;
+
+            margin-top: 20px;
+
+            padding: 14px;
+
+            text-align: center;
+
+            background: #d4af37;
+
+            color: #06271c;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            border-radius: 10px;
+        }
+
+        .pdf-button:hover {
+            background: #e5c65a;
+        }
+
+
+        /* MESSAGE */
+
+        .message {
+            text-align: center;
+
+            padding: 35px 15px;
+
+            line-height: 1.7;
+        }
+
+        .message h2 {
+            color: #d4af37;
+
+            margin-bottom: 10px;
+        }
+
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            color: #aaa;
+
+            font-size: 13px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- MENU -->
+
+    <div class="menu">
+
+        <button
+            class="menu-button"
+            id="menuButton">
+
+            ☰
+
+        </button>
+
+
+        <div
+            class="menu-list"
+            id="menuList">
+
+            <a href="accueil.html">
+                🏠 Accueil
+            </a>
+
+            <a href="waxtaan.html">
+                🎙️ Waxtaan
+            </a>
+
+            <a href="apprentissage.html">
+                📖 Apprentissage
+            </a>
+
+            <a href="evenements.html">
+                📅 Événements
+            </a>
+
+            <a href="galerie.html">
+                🖼️ Galerie
+            </a>
+
+            <a href="apropos.html">
+                ℹ️ À-propos
+            </a>
+
+            <a href="contact.html">
+                📞 Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- TITRE -->
+
+    <header>
+
+        <h1>
+            DAHIRATOUL IMANI WAL HAMAL
+        </h1>
+
+        <p>
+            📖 Apprentissage
+        </p>
+
+    </header>
+
+
+    <!-- LISTE -->
+
+    <div class="container">
+
+        <div id="chargement">
+            Chargement...
+        </div>
+
+        <div id="listeApprentissage"></div>
+
+    </div>
+
+
+    <footer>
+        © 2026 Dahiratoul Imani Wal Hamal
+    </footer>
+
+
+    <!-- FIREBASE -->
+
+    <script type="module">
+
+        import {
+
+            db,
+            collection,
+            getDocs
+
+        } from "./firebase.js";
+
+
+        /* MENU */
+
+        document
+        .getElementById("menuButton")
+        .addEventListener(
+            "click",
+            function () {
+
+                document
+                .getElementById("menuList")
+                .classList.toggle("show");
+
+            }
+        );
+
+
+        /* CHARGER */
+
+        async function chargerApprentissages() {
+
+            const chargement =
+                document.getElementById(
+                    "chargement"
+                );
+
+            const liste =
+                document.getElementById(
+                    "listeApprentissage"
+                );
+
+
+            try {
+
+                const resultat =
+                    await getDocs(
+                        collection(
+                            db,
+                            "contenus"
+                        )
+                    );
+
+
+                chargement.style.display =
+                    "none";
+
+
+                let trouve = false;
+
+
+                resultat.forEach(
+                    function (docFirebase) {
+
+                        const data =
+                            docFirebase.data();
+
+
+                        if (
+                            data.type !==
+                            "apprentissage"
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        trouve = true;
+
+
+                        const card =
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        card.className =
+                            "card";
+
+
+                        let contenu = `
+
+                            <h2>
+                                ${
+                                    data.titre ||
+                                    "Apprentissage"
+                                }
+                            </h2>
+
+                        `;
+
+
+                        if (data.theme) {
+
+                            contenu += `
+
+                                <div class="info">
+
+                                    📖
+                                    <strong>
+                                        Thème :
+                                    </strong>
+
+                                    ${data.theme}
+
+                                </div>
+
+                            `;
+
+                        }
+
+
+                        if (data.date) {
+
+                            contenu += `
+
+                                <div class="info">
+
+                                    📅
+                                    <strong>
+                                        Date :
+                                    </strong>
+
+                                    ${data.date}
+
+                                </div>
+
+                            `;
+
+                        }
+
+
+                        if (data.description) {
+
+                            contenu += `
+
+                                <div class="description">
+
+                                    ${data.description}
+
+                                </div>
+
+                            `;
+
+                        }
+
+
+                        /* PDF */
+
+                        if (data.pdf) {
+
+                            contenu += `
+
+                                <a
+                                    class="pdf-button"
+                                    href="${data.pdf}"
+                                    target="_blank"
+                                    rel="noopener"
+                                >
+
+                                    📖 Lire le PDF
+
+                                </a>
+
+                            `;
+
+                        }
+
+
+                        card.innerHTML =
+                            contenu;
+
+
+                        liste.appendChild(
+                            card
+                        );
+
+                    }
+                );
+
+
+                if (!trouve) {
+
+                    liste.innerHTML = `
+
+                        <div class="message">
+
+                            <h2>
+                                Aucun apprentissage
+                            </h2>
+
+                            <p>
+                                Aucun apprentissage
+                                n'a encore été ajouté.
+                            </p>
+
+                        </div>
+
+                    `;
+
+                }
+
+
+            } catch (erreur) {
+
+                console.error(erreur);
+
+                chargement.style.display =
+                    "none";
+
+
+                liste.innerHTML = `
+
+                    <div class="message">
+
+                        <h2>
+                            Erreur
+                        </h2>
+
+                        <p>
+                            Impossible de charger
+                            les apprentissages.
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+        chargerApprentissages();
+
+    </script>
+
+</body>
+
+</html>
